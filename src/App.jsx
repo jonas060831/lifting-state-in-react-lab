@@ -35,24 +35,44 @@ const App = () => {
   //below shoud be two function assuming 1
   //is to add to the stack and the other one is deleting on the stack
 
-  const addIngridient = (ingredientId) => {
+  const addToBurger = (ingredientId) => {
+    
+    //find the ing info base on the id
+    const ing = availableIngredients.find((_, index) => index === ingredientId)
 
+    //then we want to add it to the stack without removing the previous value
+    setStack(prevIng => {
+
+      return [...prevIng, ing]
+    })
   }
 
-  const deleteIngridient = (ingredientId) => {
+  const removeFromBurger = (ingredientId) => {
 
+    const newIngs = stack.filter((_,ingIndex) => {
+      return ingIndex !== ingredientId
+    })
+
+    console.log(newIngs)
+
+    setStack(newIngs)
   }
 
   return (
     <main>
       <h1>Burger Stacker</h1>
       <section>
-      {/* List & Stack components */}
+        {/* List & Stack components */}
 
-      <IngredientList />
+        <IngredientList
+         availableIngredients={availableIngredients}
+         handleAddToStack={addToBurger}
+        />
 
-      <BurgerStack />
-
+        <BurgerStack
+         stack={stack}
+         handleRemoveToStack={removeFromBurger}
+        />
       </section>
     </main>
   );

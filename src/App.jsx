@@ -1,35 +1,61 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
 
-function App() {
-  const [count, setCount] = useState(0)
+import { useState } from 'react';
+import './App.css';
+import BurgerStack from './components/BurgerStack';
+import IngredientList from './components/IngredientList';
+
+export const availableIngredients = [
+  { name: 'Kaiser Bun', color: 'saddlebrown' },
+  { name: 'Sesame Bun', color: 'sandybrown' },
+  { name: 'Gluten Free Bun', color: 'peru' },
+  { name: 'Lettuce Wrap', color: 'olivedrab' },
+  { name: 'Beef Patty', color: '#3F250B' },
+  { name: 'Soy Patty', color: '#3F250B' },
+  { name: 'Black Bean Patty', color: '#3F250B' },
+  { name: 'Chicken Patty', color: 'burlywood' },
+  { name: 'Lettuce', color: 'lawngreen' },
+  { name: 'Tomato', color: 'tomato' },
+  { name: 'Bacon', color: 'maroon' },
+  { name: 'Onion', color: 'lightyellow' },
+  { name: 'Cheddar Cheese', color: '#FDE18B' },
+  { name: 'Swiss Cheese', color: '#F1E1A8' },
+];
+
+const App = () => {
+
+  //The parent component containing <BurgerStack> and <IngredientList>.
+  //It will also contain stack state, and two functions
+  //for manipulating that state.
+
+  //im assuming its an array
+  const [stack, setStack] = useState([])
+
+
+  //below shoud be two function assuming 1
+  //is to add to the stack and the other one is deleting on the stack
+
+  const addIngridient = (ingredientId) => {
+
+  }
+
+  const deleteIngridient = (ingredientId) => {
+
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <main>
+      <h1>Burger Stacker</h1>
+      <section>
+      {/* List & Stack components */}
 
-export default App
+      <IngredientList />
+
+      <BurgerStack />
+
+      </section>
+    </main>
+  );
+};
+
+export default App;

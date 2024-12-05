@@ -36,10 +36,11 @@ main {
 }
 
 section {
-  width: 80%;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0rem 2rem 0rem 2rem;
 }
 
 h1 {
